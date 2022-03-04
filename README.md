@@ -16,7 +16,7 @@ Possible additions:
 
 ## To Run
 
-OpenWeatherMap requires signup to get an API key, and forbids the dissemination of the personal API keys, so my own is not included in this code.
+OpenWeatherMap requires signup to get an API key, and forbids the dissemination of the personal API keys, so my own is not included in this code. You must sign up at https://home.openweathermap.org/users/sign_up for access to an API key, then replace the placeholder text in src/env.json with your API key.
 
 ## Available Scripts
 

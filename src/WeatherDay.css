@@ -1,0 +1,13 @@
+.current-day {
+    background-color: rgb(30, 30, 30);
+    border-radius: 4%;
+    padding: 1.5rem;
+    min-width: 12rem;
+}
+
+.future-day {
+    background-color: rgb(24, 24, 24);
+    border-radius: 4%;
+    padding: 1.5rem;
+    min-width: 12rem;
+}

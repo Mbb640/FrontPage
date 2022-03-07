@@ -1,9 +1,8 @@
 import "./WeatherDay.css";
 
 function WeatherDay(props) {
-    let [current, weather] = props;
+    let {current, weather} = props;
     const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    console.log(weather);
     return (
         <div className={current ? "current-day" : "future-day"}>
             <div className="day">
@@ -13,11 +12,7 @@ function WeatherDay(props) {
             </div>
             <div className="img">
                 <img
-                    src={
-                        "http://openweathermap.org/img/wn/" +
-                        weather.weather[0].icon +
-                        "@2x.png"
-                    }
+                    src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                     alt=""
                 />
                 <p>
@@ -25,7 +20,10 @@ function WeatherDay(props) {
                         weather.weather[0].description.slice(1)}
                 </p>
             </div>
-            <div>{Math.round(weather.temp.max)}</div>
+            <div className="temp-wrapper">
+                <div>{Math.round(weather.temp.max)}</div>
+                <div>{Math.round(weather.temp.min)}</div>
+            </div>
         </div>
     );
 }

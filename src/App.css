@@ -18,3 +18,9 @@
   display: flex;
   flex-direction: row;
 }
+
+.temp-wrapper {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+}

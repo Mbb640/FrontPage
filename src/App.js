@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import WeatherDay from "./WeatherDay";
+import Todo from "./Todo";
 const env = require("./env.json");
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         // use Geolocation to determine user's current location. Default to St. John's, CA
         let lat = 47.5649;
         let lon = -52.7093;
+
         function success(pos) {
             lat = pos.coords.latitude;
             lon = pos.coords.longitude;
@@ -31,12 +33,19 @@ function App() {
                 .then((response) => response.json())
                 .then((response) => setState(response));
         }
+
         navigator.geolocation.getCurrentPosition(success, error);
     }, []);
 
+    let todoList = [
+        { completed: false, description: "Interview with ReportMate" },
+        { completed: true, description: "Meal prep" },
+        { completed: true, description: "Add basic todos!" },
+    ];
+
     return (
         <div className="App">
-            <div>
+            <div className="days-wrapper">
                 {getState ? (
                     <div className="weather-forecast">
                         <div className="day-wrapper">
@@ -54,6 +63,11 @@ function App() {
                     // suggest react-loading-icons in case of change.
                     ""
                 )}
+            </div>
+            <div className="todos-wrapper">
+                {todoList.map((todo) => (
+                    <Todo todo={todo} key={todo.description} />
+                ))}
             </div>
         </div>
     );

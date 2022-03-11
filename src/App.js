@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import WeatherDay from "./WeatherDay";
 import Todo from "./Todo";
 const env = require("./env.json");
+const todoList = require("./Todos.json");
 
 function App() {
     const [getState, setState] = useState("");
@@ -36,12 +37,6 @@ function App() {
 
         navigator.geolocation.getCurrentPosition(success, error);
     }, []);
-
-    let todoList = [
-        { completed: false, description: "Interview with ReportMate" },
-        { completed: true, description: "Meal prep" },
-        { completed: true, description: "Add basic todos!" },
-    ];
 
     return (
         <div className="App">

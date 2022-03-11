@@ -1,6 +1,7 @@
 import "./Todo.css";
 
 function Todos({ todo }) {
+    console.log(todo.completed)
     return (
         <div className="todo">
             <label htmlFor={todo.description}>
@@ -8,7 +9,7 @@ function Todos({ todo }) {
                     type="checkbox"
                     id={todo.description}
                     name={todo.description}
-                    value={todo.completed}
+                    defaultChecked={todo.completed}
                 />
                 {todo.description}
             </label>

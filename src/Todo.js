@@ -1,7 +1,6 @@
 import "./Todo.css";
 
 function Todos({ todo }) {
-    console.log(todo.completed)
     return (
         <div className="todo">
             <label htmlFor={todo.description}>

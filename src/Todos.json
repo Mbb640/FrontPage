@@ -1,5 +1,5 @@
 [
-    { "completed": false, "description": "Interview with ReportMate" },
+    { "completed": false, "description": "Check plane tickets" },
     { "completed": true, "description": "Meal prep" },
     { "completed": true, "description": "Add basic todos!" }
 ]

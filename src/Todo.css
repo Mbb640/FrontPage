@@ -3,3 +3,8 @@
     align-items: flex-start;
     flex-direction: row;
 }
+
+.label {
+    display: flex;
+    align-items: center;
+}

@@ -6,23 +6,25 @@ const env = require("./env.json");
 const todoList = require("./Todos.json");
 
 function App() {
-    const [getState, setState] = useState("");
+    const [getWeather, setWeather] = useState("");
     let errorWhenFetchingLocation = useRef(false);
+    // default location as St. John's, NL. Will be overwritten by successful Geolocation call
+    let geocoords = useRef({ lat: 47.5649, lng: -52.7093 });
 
     useEffect(() => {
-        // use Geolocation to determine user's current location. Default to St. John's, CA
-        let lat = 47.5649;
-        let lon = -52.7093;
+        // use Geolocation to determine user's current location
 
         function success(pos) {
-            lat = pos.coords.latitude;
-            lon = pos.coords.longitude;
+            geocoords.current = {
+                lat: pos.coords.latitude,
+                lng: pos.coords.longitude,
+            };
 
             fetch(
-                `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&APPID=${env.API_KEY}`
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${geocoords.current.lat}&lon=${geocoords.current.lng}&units=metric&exclude=minutely,hourly,alerts&APPID=${env.API_KEY}`
             )
                 .then((response) => response.json())
-                .then((response) => setState(response));
+                .then((response) => setWeather(response));
         }
 
         function error() {
@@ -36,24 +38,22 @@ function App() {
         <div className="App">
             {errorWhenFetchingLocation.current ? (
                 <div>
-                    Error when determining location. Do you have location
-                    enabled?
                 </div>
             ) : (
                 <div className="days-wrapper">
-                    {getState ? (
+                    {getWeather ? (
                         <div className="weather-forecast">
                             <div className="day-wrapper">
                                 <WeatherDay
                                     current
-                                    weather={getState.daily[0]}
+                                    weather={getWeather.daily[0]}
                                 />
                             </div>
                             <div className="day-wrapper">
-                                <WeatherDay weather={getState.daily[1]} />
+                                <WeatherDay weather={getWeather.daily[1]} />
                             </div>
                             <div className="day-wrapper">
-                                <WeatherDay weather={getState.daily[2]} />
+                                <WeatherDay weather={getWeather.daily[2]} />
                             </div>
                         </div>
                     ) : (

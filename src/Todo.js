@@ -1,17 +1,20 @@
 import "./Todo.css";
 
-function Todos({ todo }) {
+function Todos({ todo, onChange, onDelete }) {
     return (
         <div className="todo">
-            <label className="label" htmlFor={todo.description}>
-                <input
-                    type="checkbox"
-                    id={todo.description}
-                    name={todo.description}
-                    defaultChecked={todo.completed}
-                />
-                <div>{todo.description}</div>
-            </label>
+            <div onClick={() => onDelete()}>X</div>
+            <input
+                type="checkbox"
+                id={todo.description}
+                name={todo.description}
+                defaultChecked={todo.completed}
+                onChange={() => {
+                    onChange();
+                }}
+                className="todoCheckbox"
+            />
+            <div>{todo.description}</div>
         </div>
     );
 }

@@ -1,10 +1,31 @@
 .todo {
     display: flex;
     flex-direction: row;
-    
+    inline-size: 25rem;
+}
+
+.todo-text {
+    overflow-wrap: break-word;
+    inline-size: 20rem;
+}
+
+.delete-container {
+    display: flex;
+    align-items: center;
 }
 
 .label {
     display: flex;
     align-items: center;
+}
+
+.delete-graphic {
+    height: 24px;
+    width: 24px;
+    margin: 0 0.5rem 0 1rem;
+    cursor: pointer;
+}
+
+.todo-checkbox {
+    margin: 0 0.5rem 0 0;
 }

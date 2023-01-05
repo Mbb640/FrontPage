@@ -142,7 +142,7 @@ function App() {
                         />
                     </div>
                 ))}
-                <div>
+                <div className="todo-field">
                     <input
                         type="text"
                         id="newTodo"

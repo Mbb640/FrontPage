@@ -1,37 +1,57 @@
 .App {
-  text-align: center;
-  background-color: rgb(18, 18, 18);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  color: #ceae56;
-  font-size: calc(10px + 2vmin);
+    text-align: center;
+    background-color: rgb(18, 18, 18);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #ceae56;
+    font-size: calc(10px + 2vmin);
+    flex-wrap: wrap;
+    padding: 0 0 1rem 0;
+}
+
+@media (max-width: 600px) {
+    .days-wrapper {
+        flex-direction: column;
+    }
 }
 
 .day-wrapper {
-  margin: 0 0.75rem;
+    margin: 0.75rem;
+    width: 15rem;
+}
+.days-wrapper {
+    display: flex;
 }
 
 .todo-wrapper {
-  background-color: rgb(30, 30, 30);
-  border-radius: 6px;
-  margin: 0.5rem;
+    background-color: rgb(30, 30, 30);
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin: 0.75rem;
+}
+
+.todo-field {
+    margin: 1rem 0 0 0;
 }
 
 .weather-forecast {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .temp-wrapper {
-  flex-direction: row;
-  display: flex;
-  justify-content: space-around;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
 }
 
 .error {
-  font-size: calc(10px + 1vmin);
-  color:#D8041A
+    font-size: calc(10px + 1vmin);
+    color: #d8041a;
+    padding: 1rem;
 }

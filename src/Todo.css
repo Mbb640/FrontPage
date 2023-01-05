@@ -1,12 +1,12 @@
 .todo {
     display: flex;
     flex-direction: row;
-    inline-size: 25rem;
+    padding:0.25rem;
 }
 
 .todo-text {
     overflow-wrap: break-word;
-    inline-size: 20rem;
+    inline-size: 10rem;
 }
 
 .delete-container {

@@ -84,19 +84,19 @@ function App() {
                 lat: pos.coords.latitude,
                 lng: pos.coords.longitude,
             };
+            fetch(
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${geocoords.current.lat}&lon=${geocoords.current.lng}&units=metric&exclude=minutely,hourly,alerts&APPID=${env.API_KEY}`
+            )
+                .then((response) => response.json())
+                .then((response) => setWeather(response))
         }
 
         function error() {
             errorWhenFetchingLocation.current = true;
         }
 
-        navigator.geolocation.getCurrentPosition(success, error);
-        fetch(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${geocoords.current.lat}&lon=${geocoords.current.lng}&units=metric&exclude=minutely,hourly,alerts&APPID=${env.API_KEY}`
-        )
-            .then((response) => response.json())
-            .then((response) => setWeather(response));
-
+        navigator.geolocation.getCurrentPosition(success, error)
+            
         if (document.cookie) {
             setTodos(getCookie());
         }
@@ -106,6 +106,7 @@ function App() {
         <div className="App">
             {errorWhenFetchingLocation.current ? (
                 <div>
+                    {/* TODO: include form to allow users to manually enter lat/long */}
                     Error fetching location. Weather requires location enabled.
                 </div>
             ) : (
